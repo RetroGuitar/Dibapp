@@ -3,4 +3,5 @@
     <string name="app_name">Dibapp</string>
     <string name="Sign_In">Registrati</string>
     <string name="Login">Accedi</string>
+    <string name="Lost">Password dimenticata?</string>
 </resources>
