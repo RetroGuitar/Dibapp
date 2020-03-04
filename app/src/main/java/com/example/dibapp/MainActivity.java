@@ -13,7 +13,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button login = (Button)findViewById(R.id.button2);
+
+        //Pulsante per accedere al proprio profilo
+        Button login = (Button)findViewById(R.id.accedi);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -21,6 +23,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(loginIntent);
             }
         });
+
+        //Pulsante per registrarsi
+        Button signup = (Button)findViewById(R.id.registrati);
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent registerIntent=new Intent(MainActivity.this, SignupActivity.class) ;
+                startActivity(registerIntent);
+            }
+        });
+
     }
 
 }

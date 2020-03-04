@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">Dibapp</string>
-    <string name="Sign_In">Sign-In</string>
+    <string name="Sign_Up">Sign-Up</string>
     <string name="Login">Login</string>
     <string name="dibApp" translatable="false">dibApp</string>
     <string name="Lost">Lost Password?</string>
+    <string name="Name">Complete Name</string>
+    <string name="RegNum">Registration Number</string>
+    <string name="TeacherReg">I\'m a theacher</string>
 
 </resources>
