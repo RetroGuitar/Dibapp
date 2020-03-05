@@ -7,5 +7,6 @@
     <string name="Name">Complete Name</string>
     <string name="RegNum">Registration Number</string>
     <string name="TeacherReg">I\'m a theacher</string>
+    <string name="SendPass">Send Password</string>
 
 </resources>

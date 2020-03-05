@@ -7,4 +7,5 @@
     <string name="Name">Nome Completo</string>
     <string name="RegNum">Numero di Matricola</string>
     <string name="TeacherReg">Sono un Professore</string>
+    <string name="SendPass">Invia Password</string>
 </resources>
