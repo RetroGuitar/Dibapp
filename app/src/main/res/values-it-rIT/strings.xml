@@ -8,4 +8,11 @@
     <string name="RegNum">Numero di Matricola</string>
     <string name="TeacherReg">Sono un Professore</string>
     <string name="SendPass">Invia Password</string>
+    <string name="EditProfile">Modifica Profilo</string>
+    <string name="ChangeName">Inserisci il Nome</string>
+    <string name="ChangeRegNum">Inserisci il Numero di Matricola</string>
+    <string name="SaveChange">Salva</string>
+    <string name="ChangePass">Modifica Password</string>
+    <string name="OldPwd">Vecchia Password</string>
+    <string name="NewPwd">Nuova Password</string>
 </resources>
