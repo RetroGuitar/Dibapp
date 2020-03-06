@@ -13,6 +13,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        //definizione del pulsante per recupero password ed intent
         Button lost=(Button)findViewById(R.id.recuperapwd);
         lost.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -21,5 +23,6 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(lostpwd);
             }
         });
+
     }
 }

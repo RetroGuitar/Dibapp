@@ -15,5 +15,10 @@
     <string name="ChangePass">Change Password</string>
     <string name="OldPwd">Old Password</string>
     <string name="NewPwd">New Password</string>
+    <string name="title_activity_student_profile" translatable="false">StudentProfileActivity</string>
+    <string name="tab_text_1" translatable="false">Tab 1</string>
+    <string name="tab_text_2" translatable="false">Tab 2</string>
+    <string name="MyCourses">My Courses</string>
+    <string name="AllCourses">All Courses</string>
 
 </resources>

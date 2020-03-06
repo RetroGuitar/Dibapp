@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/icona_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ModProfileActivity"></activity>
+        <activity
+            android:name=".ProfileActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".ModProfileActivity" />
         <activity android:name=".LostPasswordActivity" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".LoginActivity" />

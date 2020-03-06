@@ -15,4 +15,6 @@
     <string name="ChangePass">Modifica Password</string>
     <string name="OldPwd">Vecchia Password</string>
     <string name="NewPwd">Nuova Password</string>
+    <string name="MyCourses">I Miei Corsi</string>
+    <string name="AllCourses">Tutti i Corsi</string>
 </resources>
