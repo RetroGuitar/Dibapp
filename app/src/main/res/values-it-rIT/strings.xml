@@ -17,4 +17,11 @@
     <string name="NewPwd">Nuova Password</string>
     <string name="MyCourses">I Miei Corsi</string>
     <string name="AllCourses">Tutti i Corsi</string>
+    <string name="Create_Lesson">Crea Lezione</string>
+    <string name="Description">Descrizione</string>
+    <string name="Classroom">Classe</string>
+    <string name="Date">Data</string>
+    <string name="Start_time">Ora di inizio</string>
+    <string name="End_time">Ora di fine</string>
+    <string name="Save_lesson">Salva Lezione</string>
 </resources>

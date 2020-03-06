@@ -20,5 +20,12 @@
     <string name="tab_text_2" translatable="false">Tab 2</string>
     <string name="MyCourses">My Courses</string>
     <string name="AllCourses">All Courses</string>
+    <string name="Create_Lesson">Create Lesson</string>
+    <string name="Description">Description</string>
+    <string name="Classroom">Classroom</string>
+    <string name="Date">Date</string>
+    <string name="Start_time">Start time</string>
+    <string name="End_time">End time</string>
+    <string name="Save_lesson">Save Lesson</string>
 
 </resources>
