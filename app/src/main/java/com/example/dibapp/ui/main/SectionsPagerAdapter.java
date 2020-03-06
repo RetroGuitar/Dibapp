@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import com.example.dibapp.CreateCourseFragment;
 import com.example.dibapp.EditFragment;
 import com.example.dibapp.R;
 
@@ -35,7 +36,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return new EditFragment();
             case 1:
-                return new EditFragment();
+                return new CreateCourseFragment();
             case 2:
                 return new EditFragment();
 

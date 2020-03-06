@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateCourseFragment"
+    android:orientation="vertical"
+    android:background="@drawable/bg_gradient">
+
+    <TextView
+        android:id="@+id/aggiungicorsotext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/AddCourse"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:id="@+id/nomecorsotext"
+        android:layout_width="300dp"
+        android:layout_height="37dp"
+        android:layout_gravity="center_horizontal"
+        android:ems="10"
+        android:hint="@string/CourseName"
+        android:background="@drawable/rounded_textbox"
+        android:layout_marginTop="40dp"
+        android:paddingLeft="10dp"/>
+
+
+    <EditText
+        android:id="@+id/descrizionecorsotext"
+        android:layout_width="300dp"
+        android:layout_height="37dp"
+        android:layout_gravity="center_horizontal"
+        android:ems="10"
+        android:hint="@string/CourseDescription"
+        android:background="@drawable/rounded_textbox"
+        android:layout_marginTop="30dp"
+        android:paddingLeft="10dp"/>
+
+    <EditText
+        android:id="@+id/cdltext"
+        android:layout_width="300dp"
+        android:layout_height="37dp"
+        android:layout_gravity="center_horizontal"
+        android:ems="10"
+        android:hint="@string/DegreeCourse"
+        android:background="@drawable/rounded_textbox"
+        android:layout_marginTop="30dp"
+        android:paddingLeft="10dp"/>
+
+
+    <EditText
+        android:id="@+id/chiavecorsotext"
+        android:layout_width="300dp"
+        android:layout_height="37dp"
+        android:layout_gravity="center_horizontal"
+        android:ems="10"
+        android:hint="@string/CoursePwd"
+        android:background="@drawable/rounded_textbox"
+        android:layout_marginTop="30dp"
+        android:paddingLeft="10dp"/>
+
+
+    <Button
+        android:id="@+id/creacorsobutton"
+        android:layout_width="218dp"
+        android:layout_height="37dp"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/AddCourse"
+        android:background="@drawable/rounded_button"
+        android:layout_marginTop="30dp"/>
+
+
+
+</LinearLayout>

@@ -17,14 +17,15 @@
         android:layout_marginTop="40dp"
         android:text="@string/Create_Lesson"
         android:textColor="#FFFFFF"
-        android:textSize="40sp"
+        android:textSize="35sp"
         android:textStyle="bold"/>
 
     <EditText
 
         android:id="@+id/text_lesson_desc"
-        android:layout_width="288dp"
-        android:layout_height="50dp"
+        android:layout_width="300dp"
+        android:layout_height="37dp"
+        android:layout_gravity="center_horizontal"
         android:layout_marginStart="28dp"
         android:layout_marginTop="26dp"
         android:layout_marginEnd="28dp"
@@ -38,8 +39,9 @@
 
     <EditText
         android:id="@+id/text_lesson_classroom"
-        android:layout_width="288dp"
-        android:layout_height="50dp"
+        android:layout_width="300dp"
+        android:layout_height="37dp"
+        android:layout_gravity="center_horizontal"
         android:layout_marginStart="28dp"
         android:layout_marginTop="26dp"
         android:layout_marginEnd="28dp"
@@ -52,8 +54,9 @@
 
     <EditText
         android:id="@+id/text_lesson_date"
-        android:layout_width="288dp"
-        android:layout_height="50dp"
+        android:layout_width="300dp"
+        android:layout_height="37dp"
+        android:layout_gravity="center_horizontal"
         android:layout_marginStart="28dp"
         android:layout_marginTop="26dp"
         android:layout_marginEnd="28dp"
@@ -68,8 +71,9 @@
 
     <EditText
         android:id="@+id/text_lesson_start"
-        android:layout_width="288dp"
-        android:layout_height="50dp"
+        android:layout_width="300dp"
+        android:layout_height="37dp"
+        android:layout_gravity="center_horizontal"
         android:layout_marginStart="28dp"
         android:layout_marginTop="26dp"
         android:layout_marginEnd="28dp"
@@ -84,8 +88,9 @@
 
     <EditText
         android:id="@+id/text_lesson_end"
-        android:layout_width="288dp"
-        android:layout_height="50dp"
+        android:layout_width="300dp"
+        android:layout_height="37dp"
+        android:layout_gravity="center_horizontal"
         android:layout_marginStart="28dp"
         android:layout_marginTop="26dp"
         android:layout_marginEnd="28dp"
@@ -100,8 +105,9 @@
 
     <Button
         android:id="@+id/btn_lesson_save"
-        android:layout_width="288dp"
-        android:layout_height="50dp"
+        android:layout_width="218dp"
+        android:layout_height="37dp"
+        android:layout_gravity="center_horizontal"
         android:layout_marginStart="28dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="28dp"

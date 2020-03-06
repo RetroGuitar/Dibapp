@@ -28,4 +28,11 @@
     <string name="End_time">End time</string>
     <string name="Save_lesson">Save Lesson</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="AddCourse">Add Course</string>
+    <string name="CourseName">Course Name</string>
+    <string name="CourseDescription">Course Description</string>
+    <string name="DegreeCourse">Degree Course</string>
+    <string name="CoursePwd">Course Password</string>
+
 </resources>

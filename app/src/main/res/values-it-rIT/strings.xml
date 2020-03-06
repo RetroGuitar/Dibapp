@@ -24,4 +24,9 @@
     <string name="Start_time">Ora di inizio</string>
     <string name="End_time">Ora di fine</string>
     <string name="Save_lesson">Salva Lezione</string>
+    <string name="AddCourse">Aggiungi Corso</string>
+    <string name="CourseName">Nome del Corso</string>
+    <string name="CourseDescription">Descrizione del Corso</string>
+    <string name="DegreeCourse">Corso di Laurea</string>
+    <string name="CoursePwd">Chiave del Corso</string>
 </resources>
