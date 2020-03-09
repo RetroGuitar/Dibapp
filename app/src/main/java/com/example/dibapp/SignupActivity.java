@@ -3,6 +3,7 @@ package com.example.dibapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -47,6 +48,7 @@ public class SignupActivity extends AppCompatActivity {
         passbt = (EditText) findViewById(R.id.pwdText);
         teach = (CheckBox) findViewById(R.id.teacherreg);
 
+
         signinbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,22 +58,22 @@ public class SignupActivity extends AppCompatActivity {
                 password = passbt.getText().toString();
 
                 if(TextUtils.isEmpty(name)){
-                    Toast.makeText(SignupActivity.this,"Enter a Name!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignupActivity.this, getString(R.string.EnterName),Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if(TextUtils.isEmpty(matricola)){
-                    Toast.makeText(SignupActivity.this,"Enter the Matricola!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignupActivity.this,getString(R.string.EnterRegNumber),Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if(TextUtils.isEmpty(mail)){
-                    Toast.makeText(SignupActivity.this,"Enter a Mail!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignupActivity.this,getString(R.string.EnterEmail),Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if(password.length()<6){
-                    Toast.makeText(SignupActivity.this,"Enter a Password of at least six characters!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignupActivity.this,getString(R.string.EnterPwd),Toast.LENGTH_SHORT).show();
                     return;
                 }
 

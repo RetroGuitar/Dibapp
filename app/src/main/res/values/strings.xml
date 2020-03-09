@@ -34,5 +34,9 @@
     <string name="CourseDescription">Course Description</string>
     <string name="DegreeCourse">Degree Course</string>
     <string name="CoursePwd">Course Password</string>
+    <string name="EnterName">Enter a Name!</string>
+    <string name="EnterRegNumber">Enter the Registration Number!</string>
+    <string name="EnterEmail">Enter an Email!</string>
+    <string name="EnterPwd">The password should be at least 6 characters long!</string>
 
 </resources>

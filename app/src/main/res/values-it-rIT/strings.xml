@@ -29,4 +29,8 @@
     <string name="CourseDescription">Descrizione del Corso</string>
     <string name="DegreeCourse">Corso di Laurea</string>
     <string name="CoursePwd">Chiave del Corso</string>
+    <string name="EnterName">Inserisci il nome!</string>
+    <string name="EnterRegNumber">Inserisci la matricola!</string>
+    <string name="EnterEmail">Inserisci l\'Email!</string>
+    <string name="EnterPwd">La password dovrebbe avere almeno 6 caratteri!</string>
 </resources>
