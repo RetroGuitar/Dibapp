@@ -77,6 +77,10 @@ public class SignupActivity extends AppCompatActivity {
                     return;
                 }
 
+                if(teach.isChecked()){
+                    teacher = true;
+                }
+
                 auth = FirebaseAuth.getInstance();
 
                 auth.createUserWithEmailAndPassword(mail, password).addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
