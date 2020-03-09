@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TeacherLessonActivity"
+    android:background="@drawable/bg_gradient"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/schedalezionetext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/LessonBoard"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        />
+
+    <EditText
+
+        android:id="@+id/text_lesson_desc"
+        android:layout_width="300dp"
+        android:layout_height="37dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/rounded_textbox"
+        android:paddingLeft="10dp"
+        android:hint="@string/Description"
+        android:inputType="text"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:clickable="false"
+        />
+
+    <EditText
+        android:id="@+id/text_lesson_classroom"
+        android:layout_width="300dp"
+        android:layout_height="37dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="28dp"
+        android:paddingLeft="10dp"
+        android:background="@drawable/rounded_textbox"
+        android:hint="@string/Classroom"
+        android:inputType="text"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:clickable="false"/>
+
+    <EditText
+        android:id="@+id/text_lesson_date"
+        android:layout_width="300dp"
+        android:layout_height="37dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="28dp"
+        android:paddingLeft="10dp"
+        android:background="@drawable/rounded_textbox"
+        android:clickable="false"
+        android:focusable="false"
+        android:hint="@string/Date"
+        android:inputType="none"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        />
+
+    <EditText
+        android:id="@+id/text_lesson_start"
+        android:layout_width="300dp"
+        android:layout_height="37dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="28dp"
+        android:paddingLeft="10dp"
+        android:background="@drawable/rounded_textbox"
+        android:focusable="false"
+        android:hint="@string/Start_time"
+        android:inputType="none"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:clickable="false"/>
+
+    <EditText
+        android:id="@+id/text_lesson_end"
+        android:layout_width="300dp"
+        android:layout_height="37dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="28dp"
+        android:paddingLeft="10dp"
+        android:background="@drawable/rounded_textbox"
+        android:clickable="false"
+        android:focusable="false"
+        android:hint="@string/End_time"
+        android:inputType="none"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp" />
+
+    <Button
+        android:id="@+id/btn_edit"
+        android:layout_width="218dp"
+        android:layout_height="37dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/rounded_button"
+        android:textAllCaps="false"
+        android:textColor="#FFF"
+        android:textSize="18sp"
+        android:text="@string/Edit" />
+
+    <Button
+        android:id="@+id/btn_visualizzacommenti"
+        android:layout_width="218dp"
+        android:layout_height="37dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/rounded_button"
+        android:text="@string/Valutations"
+        android:textAllCaps="false"
+        android:textColor="#FFF"
+        android:textSize="18sp" />
+
+</LinearLayout>

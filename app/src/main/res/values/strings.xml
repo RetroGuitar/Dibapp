@@ -38,5 +38,9 @@
     <string name="EnterRegNumber">Enter the Registration Number!</string>
     <string name="EnterEmail">Enter an Email!</string>
     <string name="EnterPwd">The password should be at least 6 characters long!</string>
+    <string name="Undefined">Undefined</string>
+    <string name="LessonBoard">Lesson Board</string>
+    <string name="Edit">Edit</string>
+    <string name="Valutations">Valutations</string>
 
 </resources>

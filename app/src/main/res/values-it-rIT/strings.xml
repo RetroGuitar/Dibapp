@@ -33,4 +33,8 @@
     <string name="EnterRegNumber">Inserisci la matricola!</string>
     <string name="EnterEmail">Inserisci l\'Email!</string>
     <string name="EnterPwd">La password dovrebbe avere almeno 6 caratteri!</string>
+    <string name="Undefined">Non definito</string>
+    <string name="LessonBoard">Scheda della Lezione</string>
+    <string name="Edit">Modifica</string>
+    <string name="Valutations">Valutazioni</string>
 </resources>
