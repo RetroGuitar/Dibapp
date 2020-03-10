@@ -14,7 +14,6 @@
             android:label="@string/title_activity_profile"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".CreateCourseActivity" />
-        <activity android:name=".EditActivity" />
         <activity android:name=".TeacherLessonActivity" />
         <activity android:name=".ModProfileActivity" />
         <activity android:name=".LostPasswordActivity" />
