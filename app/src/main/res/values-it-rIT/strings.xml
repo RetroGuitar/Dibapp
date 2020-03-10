@@ -37,4 +37,6 @@
     <string name="LessonBoard">Scheda della Lezione</string>
     <string name="Edit">Modifica</string>
     <string name="Valutations">Valutazioni</string>
+    <string name="student">Studente</string>
+    <string name="teacher">Professore</string>
 </resources>
