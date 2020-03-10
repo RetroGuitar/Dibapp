@@ -9,10 +9,11 @@
         android:roundIcon="@mipmap/icona_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ListCourseActivity"></activity>
         <activity
             android:name=".ProfileActivity"
             android:label="@string/title_activity_profile"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".CreateCourseActivity" />
         <activity android:name=".TeacherLessonActivity" />
         <activity android:name=".ModProfileActivity" />

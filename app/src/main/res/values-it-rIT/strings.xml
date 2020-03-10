@@ -39,4 +39,5 @@
     <string name="Valutations">Valutazioni</string>
     <string name="student">Studente</string>
     <string name="teacher">Professore</string>
+    <string name="Logout">Logout</string>
 </resources>
