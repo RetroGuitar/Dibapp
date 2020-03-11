@@ -65,5 +65,6 @@
     <string name="EnterDescription">Enter Description!</string>
     <string name="EnterDegree">Enter Degree Course!</string>
     <string name="CourseSuccess">Course created successfully!</string>
+    <string name="CoursesNotAvailable">There are not available courses.</string>
 
 </resources>

@@ -44,4 +44,5 @@
     <string name="EnterDescription">Inserisci una Descrizione!</string>
     <string name="EnterDegree">Inserisci il Corso Di Laurea!</string>
     <string name="CourseSuccess">Corso creato con successo!</string>
+    <string name="CoursesNotAvailable">Non ci sono ancora corsi disponibili.</string>
 </resources>
