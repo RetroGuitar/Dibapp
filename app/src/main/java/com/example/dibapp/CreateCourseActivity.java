@@ -49,7 +49,7 @@ public class CreateCourseActivity extends AppCompatActivity {
                         String description=descrizione.getText().toString();
                         String degree=laurea.getText().toString();
                         String key=chiave.getText().toString();
-                        String pushid;
+                        String pushid=pushDB.push().getKey();;
                         Course course;
 
 
@@ -70,10 +70,10 @@ public class CreateCourseActivity extends AppCompatActivity {
                             Toast.makeText(CreateCourseActivity.this, getString(R.string.EnterPwd), Toast.LENGTH_SHORT).show();
                             return;
                         }
-                        course=new Course (coursename, description , teacher, degree ,key);
+                        course=new Course (pushid, coursename, description , teacher, degree ,key);
 
-                        pushid= pushDB.push().getKey();
-                        pushDB.push().setValue(course);
+
+                        pushDB.child(pushid).setValue(course);
                         teacherCourse.child(pushid).setValue(coursename);
 
                         Toast.makeText(CreateCourseActivity.this, getString(R.string.CourseSuccess), Toast.LENGTH_SHORT).show();
