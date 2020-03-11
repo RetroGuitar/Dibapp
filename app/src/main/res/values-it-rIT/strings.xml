@@ -40,4 +40,8 @@
     <string name="student">Studente</string>
     <string name="teacher">Professore</string>
     <string name="Logout">Logout</string>
+    <string name="Back">Indietro</string>
+    <string name="EnterDescription">Inserisci una Descrizione!</string>
+    <string name="EnterDegree">Inserisci il Corso Di Laurea!</string>
+    <string name="CourseSuccess">Corso creato con successo!</string>
 </resources>

@@ -48,6 +48,7 @@ public class ProfileActivity extends AppCompatActivity  implements NavigationVie
         setContentView(R.layout.activity_profile);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
         String uid=user.getUid();
         DatabaseReference db=FirebaseDatabase.getInstance().getReference().child("users").child(uid);
@@ -66,6 +67,7 @@ public class ProfileActivity extends AppCompatActivity  implements NavigationVie
         ft.replace(R.id.nav_host_fragment, new MyCourseFragment());
         ft.commit();
         toolbar.setTitle(R.string.MyCourses);
+
 
 
 
