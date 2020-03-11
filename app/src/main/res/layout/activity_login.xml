@@ -84,8 +84,8 @@
 
     <TextView
         android:id="@+id/logintitle"
-        android:layout_width="155dp"
-        android:layout_height="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
         android:layout_marginTop="41dp"
         android:layout_marginEnd="211dp"

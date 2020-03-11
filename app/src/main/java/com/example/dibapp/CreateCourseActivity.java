@@ -37,6 +37,7 @@ public class CreateCourseActivity extends AppCompatActivity {
         String uid= firebaseUser.getUid();
         final DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("users").child(uid);
         final DatabaseReference pushDB=FirebaseDatabase.getInstance().getReference().child("courses");
+        final DatabaseReference teacherCourse=FirebaseDatabase.getInstance().getReference().child("teacher_courses").child(uid);
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull final DataSnapshot dataSnapshot) {
@@ -48,6 +49,7 @@ public class CreateCourseActivity extends AppCompatActivity {
                         String description=descrizione.getText().toString();
                         String degree=laurea.getText().toString();
                         String key=chiave.getText().toString();
+                        String pushid;
                         Course course;
 
 
@@ -70,7 +72,9 @@ public class CreateCourseActivity extends AppCompatActivity {
                         }
                         course=new Course (coursename, description , teacher, degree ,key);
 
+                        pushid= pushDB.push().getKey();
                         pushDB.push().setValue(course);
+                        teacherCourse.child(pushid).setValue(coursename);
 
                         Toast.makeText(CreateCourseActivity.this, getString(R.string.CourseSuccess), Toast.LENGTH_SHORT).show();
                         finish();
