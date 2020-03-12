@@ -45,7 +45,7 @@ public class ListCourseActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot courseSnapshot) {
                 if (courseSnapshot.exists()){
-                    courses.clear();
+
                     for (DataSnapshot dss: courseSnapshot.getChildren()){
                         coursesList.setAdapter(arrayAdapter);
 
@@ -54,6 +54,7 @@ public class ListCourseActivity extends AppCompatActivity {
                         courseObj=new Course(key, nome);
                         courseObjList.add(courseObj);
                         courses.add(nome);
+
 
 
                     }

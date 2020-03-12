@@ -51,6 +51,7 @@ public class CreateCourseActivity extends AppCompatActivity {
                         String key=chiave.getText().toString();
                         String pushid=pushDB.push().getKey();;
                         Course course;
+                        Course courseref;
 
 
                         String teacher=dataSnapshot.child("name").getValue().toString();
@@ -71,10 +72,11 @@ public class CreateCourseActivity extends AppCompatActivity {
                             return;
                         }
                         course=new Course (pushid, coursename, description , teacher, degree ,key);
+                        courseref=new Course (pushid, coursename);
 
 
                         pushDB.child(pushid).setValue(course);
-                        teacherCourse.child(pushid).setValue(coursename);
+                        teacherCourse.child(pushid).setValue(courseref);
 
                         Toast.makeText(CreateCourseActivity.this, getString(R.string.CourseSuccess), Toast.LENGTH_SHORT).show();
                         finish();
