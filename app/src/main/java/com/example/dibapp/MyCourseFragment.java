@@ -103,7 +103,8 @@ public class MyCourseFragment extends Fragment {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             if (dataSnapshot.exists()) {
-
+                                mycourses.clear();
+                                courseId.clear();
                                 for ( DataSnapshot dss : dataSnapshot.getChildren()) {
                                     courseList.setAdapter(myAdapter);
                                     id= dss.getKey();
@@ -143,7 +144,8 @@ public class MyCourseFragment extends Fragment {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             if (dataSnapshot.exists()) {
-
+                                mycourses.clear();
+                                courseId.clear();
                                 for ( DataSnapshot dss : dataSnapshot.getChildren()) {
                                     courseList.setAdapter(myAdapter);
                                     id= dss.getKey();
