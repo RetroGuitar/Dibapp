@@ -45,4 +45,6 @@
     <string name="EnterDegree">Inserisci il Corso Di Laurea!</string>
     <string name="CourseSuccess">Corso creato con successo!</string>
     <string name="CoursesNotAvailable">Non ci sono ancora corsi disponibili.</string>
+    <string name="LessonsList">Lista Lezioni</string>
+    <string name="RegisterCourse">Registrati</string>
 </resources>

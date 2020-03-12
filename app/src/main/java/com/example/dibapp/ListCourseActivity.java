@@ -4,11 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.dibapp.module.Course;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,6 +24,8 @@ import java.util.ArrayList;
 
 public class ListCourseActivity extends AppCompatActivity {
 
+    ArrayList <Course> courseObjList= new ArrayList<>();
+    Course courseObj;
     ListView coursesList;
     DatabaseReference courseReference;
     ArrayList<String> courses=new ArrayList<>();
@@ -42,12 +48,25 @@ public class ListCourseActivity extends AppCompatActivity {
                     courses.clear();
                     for (DataSnapshot dss: courseSnapshot.getChildren()){
                         coursesList.setAdapter(arrayAdapter);
+
                        String key= dss.getKey();
                        String nome=courseSnapshot.child(key).child("nome").getValue(String.class);
-                       courses.add(nome);
+                        courseObj=new Course(key, nome);
+                        courseObjList.add(courseObj);
+                        courses.add(nome);
 
 
                     }
+
+                    coursesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            Course courseClick= courseObjList.get(position);
+                            Intent showDetails=new Intent(ListCourseActivity.this, StudentCourseDataActivity.class);
+                            showDetails.putExtra("id", courseClick.id);
+                            startActivity(showDetails);
+                        }
+                    });
 
 
 

@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/icona_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ListCourseActivity"></activity>
+        <activity android:name=".StudentCourseDataActivity"></activity>
+        <activity android:name=".TeacherCourseDataActivity" />
+        <activity android:name=".ListCourseActivity" />
         <activity
             android:name=".ProfileActivity"
             android:label="@string/title_activity_profile"
