@@ -47,4 +47,5 @@
     <string name="CoursesNotAvailable">Non ci sono ancora corsi disponibili.</string>
     <string name="LessonsList">Lista Lezioni</string>
     <string name="RegisterCourse">Registrati</string>
+    <string name="EnterKey">Inserisci Chiave di Registrazione</string>
 </resources>

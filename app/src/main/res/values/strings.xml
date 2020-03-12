@@ -69,5 +69,6 @@
     <string name="Password" translatable="false">Password</string>
     <string name="LessonsList">Lessons List</string>
     <string name="RegisterCourse">Register</string>
+    <string name="EnterKey">Enter Registration Key</string>
 
 </resources>

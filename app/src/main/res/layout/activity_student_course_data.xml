@@ -28,6 +28,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="50dp"/>
 
+
     <TextView
         android:id="@+id/pschedadesc"
         android:layout_width="match_parent"
@@ -44,6 +45,19 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="30dp"/>
 
+    <EditText
+        android:id="@+id/keyreg"
+        android:background="@drawable/rounded_textbox"
+        android:paddingLeft="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="300dp"
+        android:layout_height="37dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_marginTop="50dp"
+        android:hint="@string/EnterKey" />
+
+
     <Button
         android:id="@+id/iscrivitibutton"
         android:layout_width="218dp"
@@ -51,7 +65,7 @@
         android:background="@drawable/rounded_button"
         android:layout_gravity="center_horizontal"
         android:text="@string/RegisterCourse"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="30dp"/>
 
     <Button
         android:id="@+id/backbutton"
@@ -61,6 +75,8 @@
         android:layout_gravity="center_horizontal"
         android:text="@string/Back"
         android:layout_marginTop="30dp"/>
+
+
 
 
 </LinearLayout>

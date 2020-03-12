@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -29,6 +31,8 @@ public class StudentCourseDataActivity extends AppCompatActivity {
 
         final TextView desc=(TextView) findViewById(R.id.pschedadesc);
         final TextView laurea=(TextView) findViewById(R.id.pschedalaurea);
+        final Button iscriviti = (Button) findViewById(R.id.iscrivitibutton);
+        final EditText chiave = (EditText) findViewById(R.id.keyreg);
         Intent intent= getIntent();
         String id=intent.getStringExtra("id");
         DatabaseReference dbRef= FirebaseDatabase.getInstance().getReference().child("courses").child(id);
@@ -53,6 +57,17 @@ public class StudentCourseDataActivity extends AppCompatActivity {
                prof.setText(getString(R.string.teacher)+ ": "+teacher);
                desc.setText(getString(R.string.Description)+ ": "+description);
                laurea.setText(getString(R.string.DegreeCourse)+ ": "+degree);
+
+               final String key = dataSnapshot.child("chiave").getValue().toString();
+
+               iscriviti.setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View v) {
+                       if(chiave.getText().toString().equals(key)){
+                           
+                       }
+                   }
+               });
 
             }
 
