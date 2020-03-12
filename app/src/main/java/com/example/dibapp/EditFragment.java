@@ -99,12 +99,14 @@ public class EditFragment extends Fragment {
                     hopperUpdates.put("name", profilename.getText().toString());
 
                     db.updateChildren(hopperUpdates);
+                    Toast.makeText(getContext(), "Name changed Successfully!", Toast.LENGTH_SHORT);
                 }
                 if(!changenumber.getText().toString().isEmpty()){
                     Map<String, Object> hopperUpdates = new HashMap<>();
                     hopperUpdates.put("matricola", changenumber.getText().toString());
 
                     db.updateChildren(hopperUpdates);
+                    Toast.makeText(getContext(), "Number changed Successfully!", Toast.LENGTH_SHORT);
                 }
             }
         });

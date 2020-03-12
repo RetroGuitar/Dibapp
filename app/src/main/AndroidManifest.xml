@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/icona_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".StudentRegisteredDataActivity"></activity>
         <activity android:name=".StudentCourseDataActivity"></activity>
         <activity android:name=".TeacherCourseDataActivity" />
         <activity android:name=".ListCourseActivity" />

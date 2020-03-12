@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         if(user != null){
             Intent i = new Intent(MainActivity.this, ProfileActivity.class);
             startActivity(i);
+            finish();
         }
         
         //Pulsante per accedere al proprio profilo

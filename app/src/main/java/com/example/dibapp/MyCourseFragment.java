@@ -158,7 +158,7 @@ public class MyCourseFragment extends Fragment {
                                         @Override
                                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                                             String idc=courseId.get(position);
-                                            Intent showDetails=new Intent(getContext(), StudentCourseDataActivity.class);
+                                            Intent showDetails=new Intent(getContext(), StudentRegisteredDataActivity.class);
                                             showDetails.putExtra("id", idc);
                                             startActivity(showDetails);
                                         }
