@@ -74,5 +74,6 @@
     <string name="LessonKey">Lesson Key</string>
     <string name="LessonSuccess">Lesson Created Successfully!</string>
     <string name="EmptyField">This field cannot be Empty!</string>
+    <string name="LessonsNotAvailable">There Are Not Available Lessons.</string>
 
 </resources>

@@ -41,7 +41,7 @@ public class StudentRegisteredDataActivity extends AppCompatActivity {
         final DatabaseReference studentCourse=FirebaseDatabase.getInstance().getReference().child("student_courses").child(uid);
         Intent intent= getIntent();
         final String id=intent.getStringExtra("id");
-        DatabaseReference dbRef= FirebaseDatabase.getInstance().getReference().child("courses").child(id);
+        final DatabaseReference dbRef= FirebaseDatabase.getInstance().getReference().child("courses").child(id);
 
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -54,11 +54,11 @@ public class StudentRegisteredDataActivity extends AppCompatActivity {
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                final String name, teacher, description, degree;
-               name= dataSnapshot.child("nome").getValue().toString();
-               teacher=dataSnapshot.child("professore").getValue().toString();
-               description=dataSnapshot.child("descrizione").getValue().toString();
-               degree=dataSnapshot.child("laurea").getValue().toString();
+                final String idc=dataSnapshot.child("id").getValue().toString();
+                final String name= dataSnapshot.child("nome").getValue().toString();
+                final String teacher=dataSnapshot.child("professore").getValue().toString();
+                final String  description=dataSnapshot.child("descrizione").getValue().toString();
+                final String degree=dataSnapshot.child("laurea").getValue().toString();
 
                nome.setText(name);
                prof.setText(getString(R.string.teacher)+ ": "+teacher);
@@ -68,8 +68,9 @@ public class StudentRegisteredDataActivity extends AppCompatActivity {
                 lessonList.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
                         Intent listl =new Intent (StudentRegisteredDataActivity.this, LessonListActivity.class);
-                        listl.putExtra("id", id);
+                        listl.putExtra("id", idc);
                         startActivity(listl);
                     }
                 });
