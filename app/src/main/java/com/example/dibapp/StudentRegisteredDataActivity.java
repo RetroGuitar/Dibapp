@@ -65,7 +65,14 @@ public class StudentRegisteredDataActivity extends AppCompatActivity {
                desc.setText(getString(R.string.Description)+ ": "+description);
                laurea.setText(getString(R.string.DegreeCourse)+ ": "+degree);
 
-
+                lessonList.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent listl =new Intent (StudentRegisteredDataActivity.this, LessonListActivity.class);
+                        listl.putExtra("id", id);
+                        startActivity(listl);
+                    }
+                });
 
             }
 

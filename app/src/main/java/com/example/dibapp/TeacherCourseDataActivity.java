@@ -26,11 +26,12 @@ public class TeacherCourseDataActivity extends AppCompatActivity {
 
         final TextView nome=(TextView) findViewById(R.id.pschedanome);
         final TextView prof=(TextView) findViewById(R.id.pschedaprof);
-
+        final Button createlesson=(Button) findViewById(R.id.lessoncreatebutton);
+        final Button listlesson=(Button) findViewById(R.id.lessonlistbutton);
         final TextView desc=(TextView) findViewById(R.id.pschedadesc);
         final TextView laurea=(TextView) findViewById(R.id.pschedalaurea);
         Intent intent= getIntent();
-        String id=intent.getStringExtra("id");
+        final String id=intent.getStringExtra("id");
         DatabaseReference dbRef= FirebaseDatabase.getInstance().getReference().child("courses").child(id);
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -53,6 +54,26 @@ public class TeacherCourseDataActivity extends AppCompatActivity {
                 prof.setText(getString(R.string.teacher)+ ": "+teacher);
                 desc.setText(getString(R.string.Description)+ ": "+description);
                 laurea.setText(getString(R.string.DegreeCourse)+ ": "+degree);
+
+                createlesson.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent createl =new Intent (TeacherCourseDataActivity.this, CreateLesson.class);
+                        createl.putExtra("id", id);
+                        startActivity(createl);
+
+                    }
+                });
+
+                listlesson.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent listl =new Intent (TeacherCourseDataActivity.this, LessonListActivity.class);
+                        listl.putExtra("id", id);
+                        startActivity(listl);
+                    }
+                });
+
 
             }
 

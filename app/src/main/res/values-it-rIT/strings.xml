@@ -48,4 +48,8 @@
     <string name="LessonsList">Lista Lezioni</string>
     <string name="RegisterCourse">Registrati</string>
     <string name="EnterKey">Inserisci Chiave di Registrazione</string>
+    <string name="AllLessons">Lezioni</string>
+    <string name="LessonKey">Chiave della Lezione</string>
+    <string name="LessonSuccess">Lezione creata con Successo!</string>
+    <string name="EmptyField">Questo campo non può essere vuoto!</string>
 </resources>

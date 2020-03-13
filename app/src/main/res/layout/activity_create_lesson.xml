@@ -37,20 +37,7 @@
         android:paddingBottom="10dp"
         />
 
-    <EditText
-        android:id="@+id/text_lesson_classroom"
-        android:layout_width="300dp"
-        android:layout_height="37dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="28dp"
-        android:paddingLeft="10dp"
-        android:background="@drawable/rounded_textbox"
-        android:hint="@string/Classroom"
-        android:inputType="text"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp" />
+
 
     <EditText
         android:id="@+id/text_lesson_date"
@@ -103,6 +90,21 @@
         android:paddingTop="10dp"
         android:paddingBottom="10dp" />
 
+    <EditText
+        android:id="@+id/text_lesson_key"
+        android:layout_width="300dp"
+        android:layout_height="37dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="28dp"
+        android:paddingLeft="10dp"
+        android:background="@drawable/rounded_textbox"
+        android:hint="@string/LessonKey"
+        android:inputType="text"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp" />
+
     <Button
         android:id="@+id/btn_lesson_save"
         android:layout_width="218dp"
@@ -112,8 +114,20 @@
         android:layout_marginTop="28dp"
         android:layout_marginEnd="28dp"
         android:background="@drawable/rounded_button"
-        android:textAllCaps="false"
+
         android:textColor="#FFF"
         android:textSize="18sp"
         android:text="@string/Save_lesson" />
+
+    <Button
+        android:id="@+id/backbutton"
+
+        android:text="@string/Back"
+        android:layout_width="218dp"
+        android:layout_height="37dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/rounded_button"
+        android:textColor="#FFF"
+        android:textSize="18sp"
+        android:layout_marginTop="30dp"/>
 </LinearLayout>

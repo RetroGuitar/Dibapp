@@ -54,6 +54,14 @@
         android:layout_marginTop="50dp"/>
 
     <Button
+        android:id="@+id/lessoncreatebutton"
+        android:layout_width="218dp"
+        android:layout_height="37dp"
+        android:background="@drawable/rounded_button"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/Create_Lesson"
+        android:layout_marginTop="30dp"/>
+    <Button
         android:id="@+id/backbutton"
         android:layout_width="218dp"
         android:layout_height="37dp"
@@ -61,6 +69,8 @@
         android:layout_gravity="center_horizontal"
         android:text="@string/Back"
         android:layout_marginTop="30dp"/>
+
+
 
 
 </LinearLayout>

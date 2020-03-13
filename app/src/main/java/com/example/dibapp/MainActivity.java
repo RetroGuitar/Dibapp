@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         if(user != null){
             Intent i = new Intent(MainActivity.this, ProfileActivity.class);
             startActivity(i);
-            finish();
+
         }
         
         //Pulsante per accedere al proprio profilo
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent loginIntent=new Intent(MainActivity.this, LoginActivity.class) ;
                 startActivity(loginIntent);
-                finish();
+
             }
         });
 

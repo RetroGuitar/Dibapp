@@ -41,6 +41,12 @@ public class ProfileActivity extends AppCompatActivity  implements NavigationVie
     private FloatingActionButton fab;
     private DrawerLayout drawer;
 
+    @Override
+    public void onBackPressed() {
+
+        // super.onBackPressed(); // Comment this super call to avoid calling finish() or fragmentmanager's backstack pop operation.
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +73,9 @@ public class ProfileActivity extends AppCompatActivity  implements NavigationVie
         ft.replace(R.id.nav_host_fragment, new MyCourseFragment());
         ft.commit();
         toolbar.setTitle(R.string.MyCourses);
+
+
+
 
 
 
@@ -155,8 +164,12 @@ public class ProfileActivity extends AppCompatActivity  implements NavigationVie
         }
         if (id==R.id.nav_logout){
             FirebaseAuth.getInstance().signOut();
-            finish();
+
             Toast.makeText(ProfileActivity.this, "Successfully Logged Out!", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
+            finish();
+            startActivity(intent);
+
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;

@@ -49,7 +49,7 @@ public class CreateCourseActivity extends AppCompatActivity {
                         String description=descrizione.getText().toString();
                         String degree=laurea.getText().toString();
                         String key=chiave.getText().toString();
-                        String pushid=pushDB.push().getKey();;
+                        String pushid=pushDB.push().getKey();
                         Course course;
                         Course courseref;
 

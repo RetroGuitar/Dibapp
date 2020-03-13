@@ -70,5 +70,9 @@
     <string name="LessonsList">Lessons List</string>
     <string name="RegisterCourse">Register</string>
     <string name="EnterKey">Enter Registration Key</string>
+    <string name="AllLessons">Lessons</string>
+    <string name="LessonKey">Lesson Key</string>
+    <string name="LessonSuccess">Lesson Created Successfully!</string>
+    <string name="EmptyField">This field cannot be Empty!</string>
 
 </resources>
