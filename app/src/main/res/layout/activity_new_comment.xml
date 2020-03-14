@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewCommentActivity"
+    android:orientation="vertical"
+    android:background="@drawable/bg_gradient">
+
+    <TextView
+        android:id="@+id/insertcommenttext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/CommentInsert"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:textSize="30sp"/>
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
+        />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="start|top"
+        android:layout_gravity="center_horizontal"
+        android:inputType="textMultiLine"
+        android:layout_marginTop="30dp"
+        android:lines="6"
+        android:maxLines="6"
+        android:background="@drawable/rounded_textbox"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:hint="@string/InsertCommentHere"
+        />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/PrivateComment"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_gravity="center_horizontal"
+        android:buttonTint="#000000"
+        />
+
+    <Button
+        android:id="@+id/commentinsertbutton"
+        android:layout_width="218dp"
+        android:layout_height="37dp"
+        android:background="@drawable/rounded_button"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/CommentInsert"
+        android:layout_marginTop="30dp"
+        />
+
+    <Button
+        android:id="@+id/backbutton"
+        android:layout_width="218dp"
+        android:layout_height="37dp"
+        android:background="@drawable/rounded_button"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/Back"
+        android:layout_marginTop="30dp"/>
+
+
+
+</LinearLayout>

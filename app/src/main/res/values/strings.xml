@@ -75,5 +75,13 @@
     <string name="LessonSuccess">Lesson Created Successfully!</string>
     <string name="EmptyField">This field cannot be Empty!</string>
     <string name="LessonsNotAvailable">There Are Not Available Lessons.</string>
+    <string name="Present">\"Present!\"</string>
+    <string name="CommentList">Valutations</string>
+    <string name="CommentInsert">Insert Valutation</string>
+    <string name="LessonDescription">Lesson Description</string>
+    <string name="StartLesson">Start Lesson</string>
+    <string name="EndLesson">End Lesson</string>
+    <string name="InsertCommentHere">Insert your comment here.</string>
+    <string name="PrivateComment">Private Comment</string>
 
 </resources>
