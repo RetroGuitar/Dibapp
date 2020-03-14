@@ -122,23 +122,12 @@ public class StudentLessonDataActivity extends AppCompatActivity {
                 valutations.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        DatabaseReference userdatabase = FirebaseDatabase.getInstance().getReference().child("users").child(Uid);
 
-                        userdatabase.addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                Boolean isTeacher = dataSnapshot.child("teacher").getValue(Boolean.class);
                                 Intent valutations = new Intent(StudentLessonDataActivity.this, CommentListActivity.class);
                                 valutations.putExtra("lessonId", lessonId);
-                                valutations.putExtra("isTeacher", isTeacher);
+                                valutations.putExtra("isTeacher", false);
                                 startActivity(valutations);
-                            }
 
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                            }
-                        });
                     }
                 });
 
