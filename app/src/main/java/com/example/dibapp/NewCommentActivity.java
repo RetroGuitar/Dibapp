@@ -34,7 +34,7 @@ public class NewCommentActivity extends AppCompatActivity {
         final CheckBox privateCheck=(CheckBox)findViewById(R.id.checkBox);
         Button insertComment=(Button) findViewById(R.id.commentinsertbutton);
         Button back=(Button) findViewById(R.id.backbutton);
-        final DatabaseReference commentDB = FirebaseDatabase.getInstance().getReference().child("lesson_comments");
+        final DatabaseReference commentDB = FirebaseDatabase.getInstance().getReference().child("lesson_comments").child(lessonId);
         commentId=commentDB.push().getKey();
 
         back.setOnClickListener(new View.OnClickListener() {
