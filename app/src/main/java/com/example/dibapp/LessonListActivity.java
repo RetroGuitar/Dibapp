@@ -122,7 +122,7 @@ public class LessonListActivity extends AppCompatActivity {
 
                                 }
 
-                            }else Toast.makeText(LessonListActivity.this, getString(R.string.CoursesNotAvailable) , Toast.LENGTH_SHORT).show();
+                            }else Toast.makeText(LessonListActivity.this, getString(R.string.LessonsNotAvailable) , Toast.LENGTH_SHORT).show();
                         }
 
                         @Override
