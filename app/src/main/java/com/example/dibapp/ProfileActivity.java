@@ -167,9 +167,8 @@ public class ProfileActivity extends AppCompatActivity  implements NavigationVie
 
             Toast.makeText(ProfileActivity.this, "Successfully Logged Out!", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
-            finish();
             startActivity(intent);
-
+            finish();
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;

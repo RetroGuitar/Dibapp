@@ -119,14 +119,10 @@ public class EditFragment extends Fragment {
                 newpassword = newpass.getText().toString();
 
                 if(oldpass.getText() == null){
-                  //  oldpsw.setError("Enter old Password!");
-                  //  oldpsw.requestFocus();
                     Toast.makeText(getContext(),"Enter old password!",Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(newpass.length() < 6){
-                    //newpsw.setError("Password must be >= 6 characters!");
-                    //newpsw.requestFocus();
                     Toast.makeText(getContext(),"Password must be >= 6 characters!",Toast.LENGTH_SHORT).show();
                     return;
                 }
