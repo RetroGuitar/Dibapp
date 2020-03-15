@@ -104,7 +104,16 @@ public class TeacherLessonDataActivity extends AppCompatActivity {
                 end.setText(getString(R.string.End_time)+": "+fine);
                 key.setText(getString(R.string.LessonKey)+": "+chiave);
 
-                presRef.addValueEventListener(new ValueEventListener() {
+                if (ActivityCompat.checkSelfPermission(TeacherLessonDataActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(TeacherLessonDataActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+                    requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 10);
+                }else {
+
+                    locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000, 0, locationListener);
+                }
+
+
+                    presRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if (dataSnapshot.exists()){
@@ -126,12 +135,6 @@ public class TeacherLessonDataActivity extends AppCompatActivity {
                             Toast.makeText(TeacherLessonDataActivity.this, "The lesson is in progress!", Toast.LENGTH_SHORT).show();
                         }
                         else {
-                            if (ActivityCompat.checkSelfPermission(TeacherLessonDataActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(TeacherLessonDataActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-
-                                requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 10);
-                            }else {
-
-                                locationManager.requestLocationUpdates("gps", 5000, 0, locationListener);
 
                                 FirebaseDatabase.getInstance().getReference().child("lessons").child(lessonId).child("position").setValue(position);
                                 Map<String, Object> hopperUpdates = new HashMap<>();
@@ -139,7 +142,7 @@ public class TeacherLessonDataActivity extends AppCompatActivity {
 
                                 lessonRef.updateChildren(hopperUpdates);
                                 Toast.makeText(TeacherLessonDataActivity.this,"Lesson started successfully!",Toast.LENGTH_SHORT).show();
-                            }
+
 
 
 
