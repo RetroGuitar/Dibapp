@@ -79,7 +79,7 @@ public class StudentLessonDataActivity extends AppCompatActivity {
 
             @Override
             public void onProviderDisabled(String provider) {
-
+                Toast.makeText(StudentLessonDataActivity.this, "Network provider is disabled!", Toast.LENGTH_SHORT).show();
             }
         };
 
@@ -123,6 +123,10 @@ public class StudentLessonDataActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         if (isStarted) {
+                            if (position==null){
+                                Toast.makeText(StudentLessonDataActivity.this, "There are problems with the network provider", Toast.LENGTH_SHORT).show();
+                                return;
+                            }
                            if(position.distanceTo(tPosition)<35) {
                                lessonstudent.setValue(Uid);
                                Toast.makeText(StudentLessonDataActivity.this, "Present!", Toast.LENGTH_SHORT).show();
