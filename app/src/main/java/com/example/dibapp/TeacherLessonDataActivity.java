@@ -2,14 +2,21 @@ package com.example.dibapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.dibapp.module.Position;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -26,6 +33,9 @@ public class TeacherLessonDataActivity extends AppCompatActivity {
     Button lessonstart, lessonend, comment, back;
     String descrizione, data, inizio, fine, chiave;
     Boolean isStarted;
+    Position position;
+    LocationManager locationManager;
+    LocationListener locationListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +57,28 @@ public class TeacherLessonDataActivity extends AppCompatActivity {
           lessonend = (Button) findViewById(R.id.lessonend);
           comment = (Button) findViewById(R.id.commentlistbutton);
           back = (Button) findViewById(R.id.backbutton);
+          locationManager= (LocationManager) getSystemService(LOCATION_SERVICE);
+          locationListener=new LocationListener() {
+              @Override
+              public void onLocationChanged(Location location) {
+                  position= new Position(location.getAccuracy(), location.getLatitude(), location.getLongitude());
+              }
+
+              @Override
+              public void onStatusChanged(String provider, int status, Bundle extras) {
+
+              }
+
+              @Override
+              public void onProviderEnabled(String provider) {
+
+              }
+
+              @Override
+              public void onProviderDisabled(String provider) {
+
+              }
+          };
 
           back.setOnClickListener(new View.OnClickListener() {
               @Override
@@ -94,11 +126,23 @@ public class TeacherLessonDataActivity extends AppCompatActivity {
                             Toast.makeText(TeacherLessonDataActivity.this, "The lesson is in progress!", Toast.LENGTH_SHORT).show();
                         }
                         else {
-                            Map<String, Object> hopperUpdates = new HashMap<>();
-                            hopperUpdates.put("iniziata", true);
+                            if (ActivityCompat.checkSelfPermission(TeacherLessonDataActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(TeacherLessonDataActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
-                            lessonRef.updateChildren(hopperUpdates);
-                            Toast.makeText(TeacherLessonDataActivity.this,"Lesson started successfully!",Toast.LENGTH_SHORT).show();
+                                requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 10);
+                            }else {
+
+                                locationManager.requestLocationUpdates("gps", 5000, 0, locationListener);
+
+                                FirebaseDatabase.getInstance().getReference().child("lessons").child(lessonId).child("position").setValue(position);
+                                Map<String, Object> hopperUpdates = new HashMap<>();
+                                hopperUpdates.put("iniziata", true);
+
+                                lessonRef.updateChildren(hopperUpdates);
+                                Toast.makeText(TeacherLessonDataActivity.this,"Lesson started successfully!",Toast.LENGTH_SHORT).show();
+                            }
+
+
+
                         }
                     }
                 });
@@ -138,5 +182,17 @@ public class TeacherLessonDataActivity extends AppCompatActivity {
 
             }
         });
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        switch(requestCode){
+            case 10:
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                }
+        }
+
     }
 }
