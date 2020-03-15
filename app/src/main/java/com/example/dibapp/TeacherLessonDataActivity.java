@@ -91,7 +91,7 @@ public class TeacherLessonDataActivity extends AppCompatActivity {
             requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 10);
         }else {
 
-            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000, 0, locationListener);
+            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
         }
 
         lessonRef.addValueEventListener(new ValueEventListener() {
@@ -138,11 +138,14 @@ public class TeacherLessonDataActivity extends AppCompatActivity {
                         else {
 
                                 FirebaseDatabase.getInstance().getReference().child("lessons").child(lessonId).child("position").setValue(position);
-                                Map<String, Object> hopperUpdates = new HashMap<>();
-                                hopperUpdates.put("iniziata", true);
+                                if (position!=null) {
+                                    Map<String, Object> hopperUpdates = new HashMap<>();
+                                    hopperUpdates.put("iniziata", true);
 
-                                lessonRef.updateChildren(hopperUpdates);
-                                Toast.makeText(TeacherLessonDataActivity.this,"Lesson started successfully!",Toast.LENGTH_SHORT).show();
+                                    lessonRef.updateChildren(hopperUpdates);
+
+                                    Toast.makeText(TeacherLessonDataActivity.this, "Lesson started successfully!", Toast.LENGTH_SHORT).show();
+                                } else                                 Toast.makeText(TeacherLessonDataActivity.this, "There are problems with the network provider", Toast.LENGTH_SHORT).show();
 
 
 

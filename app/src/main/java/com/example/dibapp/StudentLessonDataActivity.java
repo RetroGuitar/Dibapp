@@ -95,7 +95,7 @@ public class StudentLessonDataActivity extends AppCompatActivity {
             requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 10);
         }else {
 
-            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000, 0, locationListener);
+            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
         }
 
         lessonRef.addValueEventListener(new ValueEventListener() {
@@ -106,10 +106,12 @@ public class StudentLessonDataActivity extends AppCompatActivity {
                 data = lezioneSnapshot.child("data").getValue(String.class);
                 inizio = lezioneSnapshot.child("ora_i").getValue(String.class);
                 fine = lezioneSnapshot.child("ora_f").getValue(String.class);
-                tAcc=lezioneSnapshot.child("position").child("accuracy").getValue(Double.class);
-                tLt=lezioneSnapshot.child("position").child("latitude").getValue(Double.class);
-                tLn= lezioneSnapshot.child("position").child("longitude").getValue(Double.class);
-                tPosition=new Position(tAcc, tLt, tLn);
+               if (lezioneSnapshot.child("position").exists()){
+                   tAcc=lezioneSnapshot.child("position").child("accuracy").getValue(Double.class);
+                   tLt=lezioneSnapshot.child("position").child("latitude").getValue(Double.class);
+                   tLn= lezioneSnapshot.child("position").child("longitude").getValue(Double.class);
+                   tPosition=new Position(tAcc, tLt, tLn);
+               }
 
 
                 schedaDesc.setText(descrizione);
