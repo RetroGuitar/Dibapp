@@ -63,4 +63,5 @@
     <string name="PrivateComment">Commento Privato</string>
     <string name="EmptyComment">Inserisci il tuo commento!</string>
     <string name="CommentPublished">Il commento è stato inserito con successo!</string>
+    <string name="PresentT">Presenti</string>
 </resources>

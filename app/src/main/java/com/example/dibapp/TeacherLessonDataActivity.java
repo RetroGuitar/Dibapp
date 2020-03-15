@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TeacherLessonDataActivity extends AppCompatActivity {
-    TextView schedaDesc, date, start, end, key;
+    TextView schedaDesc, date, start, end, key, pres;
     Button lessonstart, lessonend, comment, back;
     String descrizione, data, inizio, fine, chiave;
     Boolean isStarted;
@@ -35,12 +35,14 @@ public class TeacherLessonDataActivity extends AppCompatActivity {
         final String lessonId = i.getStringExtra("lessonId");
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         final DatabaseReference lessonRef = FirebaseDatabase.getInstance().getReference().child("lessons").child(lessonId);
+        final DatabaseReference presRef=FirebaseDatabase.getInstance().getReference().child("lesson_students").child(lessonId);
 
           schedaDesc = (TextView) findViewById(R.id.pschedadesc);
           date = (TextView) findViewById(R.id.pschedadate);
           start = (TextView) findViewById(R.id.pschedastart);
           end = (TextView) findViewById(R.id.pschedaend);
           key = (TextView) findViewById(R.id.pschedakey);
+          pres=(TextView) findViewById(R.id.pschedapres);
           lessonstart = (Button) findViewById(R.id.lessonstart);
           lessonend = (Button) findViewById(R.id.lessonend);
           comment = (Button) findViewById(R.id.commentlistbutton);
@@ -69,6 +71,21 @@ public class TeacherLessonDataActivity extends AppCompatActivity {
                 start.setText(getString(R.string.Start_time)+": "+inizio);
                 end.setText(getString(R.string.End_time)+": "+fine);
                 key.setText(getString(R.string.LessonKey)+": "+chiave);
+
+                presRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.exists()){
+                            pres.setText(getString(R.string.PresentT)+": "+String.valueOf(dataSnapshot.getChildrenCount()));
+                        } else pres.setText(getString(R.string.PresentT)+": 0");
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
 
                 lessonstart.setOnClickListener(new View.OnClickListener() {
                     @Override

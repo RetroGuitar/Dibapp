@@ -85,5 +85,6 @@
     <string name="PrivateComment">Private Comment</string>
     <string name="EmptyComment">Insert your Comment!</string>
     <string name="CommentPublished">Your comment has been published successfully!</string>
+    <string name="PresentT">Present</string>
 
 </resources>

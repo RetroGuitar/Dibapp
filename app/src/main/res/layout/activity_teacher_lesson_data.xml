@@ -49,6 +49,14 @@
         android:layout_marginTop="30dp"/>
 
     <TextView
+        android:id="@+id/pschedapres"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/PresentT"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"/>
+
+    <TextView
         android:id="@+id/pschedakey"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

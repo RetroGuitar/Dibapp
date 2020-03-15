@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 public class StudentLessonDataActivity extends AppCompatActivity {
     TextView schedaDesc, date, start, end;
     EditText key;
-    Button present, valutations, insertD, back;
+    Button present, valutations, insertC, back;
     String descrizione, data, inizio, fine, chiave;
     Boolean isStarted;
 
@@ -40,7 +40,7 @@ public class StudentLessonDataActivity extends AppCompatActivity {
         key = (EditText) findViewById(R.id.pschedachiave);
         present = (Button) findViewById(R.id.lessonlistbutton);
         valutations = (Button) findViewById(R.id.commentlistbutton);
-        insertD = (Button) findViewById(R.id.commentinsertbutton);
+        insertC = (Button) findViewById(R.id.commentinsertbutton);
         back = (Button) findViewById(R.id.backbutton);
 
         Intent i = getIntent();
@@ -72,6 +72,7 @@ public class StudentLessonDataActivity extends AppCompatActivity {
                 start.setText(getString(R.string.Start_time)+": "+inizio);
                 end.setText(getString(R.string.End_time)+": "+fine);
 
+
                 present.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -95,7 +96,7 @@ public class StudentLessonDataActivity extends AppCompatActivity {
                     }
 
                 });
-                insertD.setOnClickListener(new View.OnClickListener() {
+                insertC.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         lessonstudent.addValueEventListener(new ValueEventListener() {
