@@ -41,7 +41,7 @@ public class CreateLesson extends AppCompatActivity {
         final EditText data=(EditText) findViewById(R.id.text_lesson_date);
         final EditText orai=(EditText) findViewById(R.id.text_lesson_start);
         final  EditText oraf=(EditText) findViewById(R.id.text_lesson_end);
-        final EditText chiave=(EditText) findViewById(R.id.text_lesson_key);
+
         final Button back=(Button) findViewById(R.id.backbutton);
         final Button createButton=(Button) findViewById(R.id.btn_lesson_save);
 
@@ -152,7 +152,7 @@ public class CreateLesson extends AppCompatActivity {
                 String date= data.getText().toString();
                 String start=orai.getText().toString();
                 String end=oraf.getText().toString();
-                String key=chiave.getText().toString();
+
 
                 if (desc.isEmpty()) {
                     Toast.makeText(CreateLesson.this, getString(R.string.EmptyField), Toast.LENGTH_SHORT).show();
@@ -170,13 +170,9 @@ public class CreateLesson extends AppCompatActivity {
                     Toast.makeText(CreateLesson.this, getString(R.string.EmptyField), Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if (key.isEmpty()) {
-                    Toast.makeText(CreateLesson.this, getString(R.string.EmptyField), Toast.LENGTH_SHORT).show();
-                    return;
-                }
 
 
-                Lesson completeLesson=new Lesson(lessonId, desc, date, start, end, key, false);
+                Lesson completeLesson=new Lesson(lessonId, desc, date, start, end, false);
                 Lesson courseLesson=new Lesson (lessonId, desc);
 
                 //Push dei due oggetti

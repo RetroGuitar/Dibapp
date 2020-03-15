@@ -30,7 +30,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class StudentLessonDataActivity extends AppCompatActivity {
     TextView schedaDesc, date, start, end;
-    EditText key;
+
     Button present, valutations, insertC, back;
     String descrizione, data, inizio, fine, chiave;
     Boolean isStarted;
@@ -48,7 +48,7 @@ public class StudentLessonDataActivity extends AppCompatActivity {
         date = (TextView) findViewById(R.id.pschedadate);
         start = (TextView) findViewById(R.id.pschedastart);
         end = (TextView) findViewById(R.id.pschedaend);
-        key = (EditText) findViewById(R.id.pschedachiave);
+
         present = (Button) findViewById(R.id.lessonlistbutton);
         valutations = (Button) findViewById(R.id.commentlistbutton);
         insertC = (Button) findViewById(R.id.commentinsertbutton);
@@ -106,7 +106,6 @@ public class StudentLessonDataActivity extends AppCompatActivity {
                 data = lezioneSnapshot.child("data").getValue(String.class);
                 inizio = lezioneSnapshot.child("ora_i").getValue(String.class);
                 fine = lezioneSnapshot.child("ora_f").getValue(String.class);
-                chiave = lezioneSnapshot.child("chiave").getValue(String.class);
                 tAcc=lezioneSnapshot.child("position").child("accuracy").getValue(Double.class);
                 tLt=lezioneSnapshot.child("position").child("latitude").getValue(Double.class);
                 tLn= lezioneSnapshot.child("position").child("longitude").getValue(Double.class);

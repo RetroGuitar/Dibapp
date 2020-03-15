@@ -56,16 +56,6 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="30dp"/>
 
-    <TextView
-        android:id="@+id/pschedakey"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/LessonKey"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="30dp"/>
-
-
-
 
     <Button
         android:id="@+id/lessonstart"
@@ -74,7 +64,7 @@
         android:background="@drawable/rounded_button"
         android:layout_gravity="center_horizontal"
         android:text="@string/StartLesson"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="50dp"/>
 
 
 

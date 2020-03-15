@@ -29,9 +29,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TeacherLessonDataActivity extends AppCompatActivity {
-    TextView schedaDesc, date, start, end, key, pres;
+    TextView schedaDesc, date, start, end, pres;
     Button lessonstart, lessonend, comment, back;
-    String descrizione, data, inizio, fine, chiave;
+    String descrizione, data, inizio, fine;
     Boolean isStarted;
     Position position;
     LocationManager locationManager;
@@ -51,7 +51,7 @@ public class TeacherLessonDataActivity extends AppCompatActivity {
           date = (TextView) findViewById(R.id.pschedadate);
           start = (TextView) findViewById(R.id.pschedastart);
           end = (TextView) findViewById(R.id.pschedaend);
-          key = (TextView) findViewById(R.id.pschedakey);
+
           pres=(TextView) findViewById(R.id.pschedapres);
           lessonstart = (Button) findViewById(R.id.lessonstart);
           lessonend = (Button) findViewById(R.id.lessonend);
@@ -103,13 +103,13 @@ public class TeacherLessonDataActivity extends AppCompatActivity {
                 data = lessonSnapshot.child("data").getValue(String.class);
                 inizio = lessonSnapshot.child("ora_i").getValue(String.class);
                 fine = lessonSnapshot.child("ora_f").getValue(String.class);
-                chiave = lessonSnapshot.child("chiave").getValue(String.class);
+
 
                 schedaDesc.setText(descrizione);
                 date.setText(getString(R.string.Date)+": "+data);
                 start.setText(getString(R.string.Start_time)+": "+inizio);
                 end.setText(getString(R.string.End_time)+": "+fine);
-                key.setText(getString(R.string.LessonKey)+": "+chiave);
+
 
 
 
