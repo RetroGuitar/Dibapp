@@ -86,6 +86,13 @@ public class TeacherLessonDataActivity extends AppCompatActivity {
                   finish();
               }
           });
+        if (ActivityCompat.checkSelfPermission(TeacherLessonDataActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(TeacherLessonDataActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 10);
+        }else {
+
+            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000, 0, locationListener);
+        }
 
         lessonRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -104,13 +111,7 @@ public class TeacherLessonDataActivity extends AppCompatActivity {
                 end.setText(getString(R.string.End_time)+": "+fine);
                 key.setText(getString(R.string.LessonKey)+": "+chiave);
 
-                if (ActivityCompat.checkSelfPermission(TeacherLessonDataActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(TeacherLessonDataActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
-                    requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 10);
-                }else {
-
-                    locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000, 0, locationListener);
-                }
 
 
                     presRef.addValueEventListener(new ValueEventListener() {

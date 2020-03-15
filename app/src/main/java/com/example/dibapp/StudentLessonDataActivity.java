@@ -2,8 +2,14 @@ package com.example.dibapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -13,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dibapp.module.Lesson;
+import com.example.dibapp.module.Position;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -27,6 +34,10 @@ public class StudentLessonDataActivity extends AppCompatActivity {
     Button present, valutations, insertC, back;
     String descrizione, data, inizio, fine, chiave;
     Boolean isStarted;
+    Position position,tPosition;
+    LocationManager locationManager;
+    LocationListener locationListener;
+    double tAcc, tLt, tLn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +60,28 @@ public class StudentLessonDataActivity extends AppCompatActivity {
         final DatabaseReference lessonRef = FirebaseDatabase.getInstance().getReference().child("lessons").child(lessonId);
         final String Uid = user.getUid();
         final DatabaseReference lessonstudent = FirebaseDatabase.getInstance().getReference().child("lesson_students").child(lessonId).child(Uid);
+        locationManager= (LocationManager) getSystemService(LOCATION_SERVICE);
+        locationListener=new LocationListener() {
+            @Override
+            public void onLocationChanged(Location location) {
+                position= new Position(location.getAccuracy(), location.getLatitude(), location.getLongitude());
+            }
+
+            @Override
+            public void onStatusChanged(String provider, int status, Bundle extras) {
+
+            }
+
+            @Override
+            public void onProviderEnabled(String provider) {
+
+            }
+
+            @Override
+            public void onProviderDisabled(String provider) {
+
+            }
+        };
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +89,14 @@ public class StudentLessonDataActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        if (ActivityCompat.checkSelfPermission(StudentLessonDataActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(StudentLessonDataActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 10);
+        }else {
+
+            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000, 0, locationListener);
+        }
 
         lessonRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -66,6 +107,11 @@ public class StudentLessonDataActivity extends AppCompatActivity {
                 inizio = lezioneSnapshot.child("ora_i").getValue(String.class);
                 fine = lezioneSnapshot.child("ora_f").getValue(String.class);
                 chiave = lezioneSnapshot.child("chiave").getValue(String.class);
+                tAcc=lezioneSnapshot.child("position").child("accuracy").getValue(Double.class);
+                tLt=lezioneSnapshot.child("position").child("latitude").getValue(Double.class);
+                tLn= lezioneSnapshot.child("position").child("longitude").getValue(Double.class);
+                tPosition=new Position(tAcc, tLt, tLn);
+
 
                 schedaDesc.setText(descrizione);
                 date.setText(getString(R.string.Date)+": "+data);
@@ -77,17 +123,10 @@ public class StudentLessonDataActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         if (isStarted) {
-                            if (key.getText().toString().isEmpty()) {
-                                Toast.makeText(StudentLessonDataActivity.this, "Insert the lesson key!", Toast.LENGTH_SHORT).show();
-                                return;
-                            }
-                            if (key.getText().toString().equals(chiave)) {
-                                lessonstudent.setValue(Uid);
-                                Toast.makeText(StudentLessonDataActivity.this, "Present!", Toast.LENGTH_SHORT).show();
-                            } else {
-                                Toast.makeText(StudentLessonDataActivity.this, "The key is incorrect!", Toast.LENGTH_SHORT).show();
-                                return;
-                            }
+                           if(position.distanceTo(tPosition)<35) {
+                               lessonstudent.setValue(Uid);
+                               Toast.makeText(StudentLessonDataActivity.this, "Present!", Toast.LENGTH_SHORT).show();
+                           }else Toast.makeText(StudentLessonDataActivity.this, "You're not in the Classroom!", Toast.LENGTH_SHORT).show();
                         }
                         else {
                             Toast.makeText(StudentLessonDataActivity.this,"The lesson is not in progress!",Toast.LENGTH_SHORT).show();
@@ -139,5 +178,18 @@ public class StudentLessonDataActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        switch(requestCode){
+            case 10:
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                }
+        }
+
     }
 }
