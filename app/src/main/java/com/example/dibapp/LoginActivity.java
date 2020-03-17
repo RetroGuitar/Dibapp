@@ -7,8 +7,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +23,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
+    Animation topAnim, bottomAnim, buttonAnim;
+    ProgressBar progress;
     TextView textview;
     EditText mail, password;
     Button sign, reset;
@@ -32,11 +37,24 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        topAnim = AnimationUtils.loadAnimation(this, R.anim.top_animation);
+        bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
+        buttonAnim = AnimationUtils.loadAnimation(this, R.anim.blink_anim);
+
         textview = (TextView) findViewById(R.id.logintitle);
         mail = (EditText) findViewById(R.id.emailText);
         password = (EditText) findViewById(R.id.pwdText);
         sign = (Button) findViewById(R.id.accedibutt);
         reset = (Button) findViewById(R.id.recuperapwd);
+        progress = (ProgressBar) findViewById(R.id.progressBar2);
+
+        textview.startAnimation(topAnim);
+        mail.startAnimation(topAnim);
+        password.startAnimation(topAnim);
+        sign.startAnimation(topAnim);
+        reset.startAnimation(bottomAnim);
+        progress.startAnimation(bottomAnim);
+        progress.setVisibility(View.GONE);
 
         auth = FirebaseAuth.getInstance();
 
@@ -55,6 +73,8 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
+                sign.startAnimation(buttonAnim);
+                progress.setVisibility(View.VISIBLE);
                 auth.signInWithEmailAndPassword(email, psw).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {

@@ -66,7 +66,7 @@ public class SignupActivity extends AppCompatActivity {
         progress.startAnimation(bottomAnim);
         signinbtn.startAnimation(bottomAnim);
         progress.setVisibility(View.GONE);
-        
+
 
         signinbtn.setOnClickListener(new View.OnClickListener() {
             @Override
