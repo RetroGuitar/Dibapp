@@ -33,7 +33,6 @@
         android:paddingLeft="10dp"
         android:hint="@string/Description"
         android:inputType="text"
-        android:paddingTop="10dp"
         android:paddingBottom="10dp"
         />
 
@@ -53,7 +52,6 @@
         android:focusable="false"
         android:hint="@string/Date"
         android:inputType="none"
-        android:paddingTop="10dp"
         android:paddingBottom="10dp" />
 
     <EditText
@@ -70,7 +68,6 @@
         android:focusable="false"
         android:hint="@string/Start_time"
         android:inputType="none"
-        android:paddingTop="10dp"
         android:paddingBottom="10dp" />
 
     <EditText
@@ -87,7 +84,6 @@
         android:focusable="false"
         android:hint="@string/End_time"
         android:inputType="none"
-        android:paddingTop="10dp"
         android:paddingBottom="10dp" />
 
     <Button

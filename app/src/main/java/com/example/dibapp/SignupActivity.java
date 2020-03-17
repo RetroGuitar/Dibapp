@@ -9,9 +9,12 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +29,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class SignupActivity extends AppCompatActivity {
 
+    Animation topAnim, bottomAnim, buttonAnim;
+    ProgressBar progress;
     Button signinbtn;
     EditText nomebt, matricolabt, mailbt, passbt;
     TextView textview;
@@ -39,7 +44,11 @@ public class SignupActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+        topAnim = AnimationUtils.loadAnimation(this, R.anim.top_animation);
+        bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
+        buttonAnim = AnimationUtils.loadAnimation(this, R.anim.blink_anim);
 
+        progress = (ProgressBar) findViewById(R.id.progressbar1);
         signinbtn = (Button) findViewById(R.id.registratibutt);
         textview = (TextView) findViewById(R.id.registratititle);
         nomebt = (EditText) findViewById(R.id.nomereg);
@@ -48,10 +57,21 @@ public class SignupActivity extends AppCompatActivity {
         passbt = (EditText) findViewById(R.id.pwdText);
         teach = (CheckBox) findViewById(R.id.teacherreg);
 
+        textview.startAnimation(topAnim);
+        nomebt.startAnimation(topAnim);
+        matricolabt.startAnimation(topAnim);
+        mailbt.startAnimation(topAnim);
+        passbt.startAnimation(topAnim);
+        teach.startAnimation(topAnim);
+        progress.startAnimation(bottomAnim);
+        signinbtn.startAnimation(bottomAnim);
+        progress.setVisibility(View.GONE);
+        
 
         signinbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 name = nomebt.getText().toString();
                 matricola = matricolabt.getText().toString();
                 mail = mailbt.getText().toString();
@@ -81,6 +101,8 @@ public class SignupActivity extends AppCompatActivity {
                     teacher = true;
                 }
 
+                signinbtn.startAnimation(buttonAnim);
+                progress.setVisibility(View.VISIBLE);
                 auth = FirebaseAuth.getInstance();
 
                 auth.createUserWithEmailAndPassword(mail, password).addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
@@ -102,6 +124,7 @@ public class SignupActivity extends AppCompatActivity {
 
                             sendVerificationEmail();
                             startActivity(new Intent(SignupActivity.this, MainActivity.class));
+
                         }
                     }
                 });
