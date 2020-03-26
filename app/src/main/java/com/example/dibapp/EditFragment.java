@@ -10,8 +10,11 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -73,6 +76,8 @@ public class EditFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
+    Animation buttonAnim;
+    ProgressBar progress;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -83,8 +88,12 @@ public class EditFragment extends Fragment {
         final EditText changenumber = (EditText) view.findViewById(R.id.changeregnumbertext);
         final EditText oldpass = (EditText) view.findViewById(R.id.oldpwdtext);
         final EditText newpass = (EditText) view.findViewById(R.id.newpwdtext);
-        Button save = (Button) view.findViewById(R.id.saveeditsbutton);
-        Button change = (Button) view.findViewById(R.id.changepasswordbutton);
+        final Button save = (Button) view.findViewById(R.id.saveeditsbutton);
+        final Button change = (Button) view.findViewById(R.id.changepasswordbutton);
+        buttonAnim = AnimationUtils.loadAnimation(getContext(), R.anim.blink_anim);
+        progress = (ProgressBar) view.findViewById(R.id.progressBar4);
+
+        progress.setVisibility(View.GONE);
 
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String Uid = user.getUid();
@@ -108,6 +117,9 @@ public class EditFragment extends Fragment {
                     db.updateChildren(hopperUpdates);
                     Toast.makeText(getContext(), "Number changed Successfully!", Toast.LENGTH_SHORT).show();
                 }
+                save.startAnimation(buttonAnim);
+                Intent i = new Intent(getActivity(), ProfileActivity.class);
+                startActivity(i);
             }
         });
 
@@ -127,6 +139,8 @@ public class EditFragment extends Fragment {
                     return;
                 }
 
+                progress.setVisibility(View.VISIBLE);
+                change.startAnimation(buttonAnim);
                 AuthCredential credential = EmailAuthProvider.getCredential(user.getEmail(),oldpassword);
 
                 user.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -30,6 +31,8 @@ public class TeacherCourseDataActivity extends AppCompatActivity {
         final Button listlesson=(Button) findViewById(R.id.lessonlistbutton);
         final TextView desc=(TextView) findViewById(R.id.pschedadesc);
         final TextView laurea=(TextView) findViewById(R.id.pschedalaurea);
+
+
         Intent intent= getIntent();
         final String id=intent.getStringExtra("id");
         DatabaseReference dbRef= FirebaseDatabase.getInstance().getReference().child("courses").child(id);
@@ -60,6 +63,7 @@ public class TeacherCourseDataActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         Intent createl =new Intent (TeacherCourseDataActivity.this, CreateLesson.class);
                         createl.putExtra("id", idc);
+
                         startActivity(createl);
 
                     }
